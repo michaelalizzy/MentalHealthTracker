@@ -21,23 +21,39 @@ public class SOS extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sos);
 
+        if (ContextCompact.checkSelfPermission(MainActivity.this,
+                Manifest.Permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.ShouldShowrequestPermissionRationale(MainActivity.this,
+                        Manifest.permission.READ_PHONE_STATE){
 
+                    ActivityCompat.requestPermissions(MainActivity.this,
+                            new String[] {Manifest.permission.READ_PHONE_STATE}, 1);
+            }else {
+                ActivityCompat.requestPermissions(MainActivity.this,
+                        new String[] {Manifest.permission.READ_PHONE_STATE}, 1);
+            }
+
+        }else {
+            //do nothing
+        }
     }
 
-    public void BtnSetSOS_onClick(View view2)
-    {//start buttonSOS
-        String number = n;
-        Intent intent = new Intent (Intent.ACTION_TE);
-        intent.setData(Uri.parse("Tel:" + number));
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+
+
+    @overridde
+    public void onRequestPermissionsResult(int RequestCode, String[] permissions, int[] grantResults){
+        switch (requestCode) {
+            if (grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if(ContextCompat.checkSelfPermission(MainActivity.this,
+                        Manifest.permission.READ_PHONE_STATE)== PackageManager.PERMISSION_GRANTED){
+                    Toadt.makeText(this, "Permission granted"), Toast.LENGTH_SHORT).show();
+                }
+            }else{
+                Toast.makeText(this, "no permission granted"), Toast.LENGTH_SHORT).show();
+            }
             return;
-
-        private void sendSMS(String phoneNumber, String message)
-        {
-            SmsManager sms = SmsManager.getDefault();
-            sms.sendTextMessage(phoneNumber, null, message, null, null);
         }
-        startActivity(intent);
+    }
 
-    }//end buttonSOS
+
 }
