@@ -14,65 +14,77 @@ import android.widget.Button;
 import static android.R.attr.phoneNumber;
 import static android.R.id.message;
 
-public class SOS extends AppCompatActivity {
+public class SOS extends AppCompatActivity
+{//start class
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {//start onCreate
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sos);
 
-        if (ContextCompact.checkSelfPermission(MainActivity.this,
-                Manifest.Permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
-                if (ActivityCompat.ShouldShowrequestPermissionRationale(MainActivity.this,
-                        Manifest.permission.SEND_SMS){
-
-                    ActivityCompat.requestPermissions(MainActivity.this,
-                            new String[] {Manifest.permission.SEND_SMS}, 1);
-            }else {
-                ActivityCompat.requestPermissions(MainActivity.this,
-                        new String[] {Manifest.permission.SEND_SMS}, 1);
-            }
-
-        }else {
+        if (ContextCompact.checkSelfPermission(MainActivity.this, Manifest.Permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED)
+        {//start if1
+                if (ActivityCompat.ShouldShowrequestPermissionRationale(MainActivity.this, Manifest.permission.SEND_SMS)
+                     {//start if 2
+                         ActivityCompat.requestPermissions(MainActivity.this, new String[] {Manifest.permission.SEND_SMS}, 1);
+                     }//end if2
+                 else
+                {//start else1
+                     ActivityCompat.requestPermissions(MainActivity.this, new String[] {Manifest.permission.SEND_SMS}, 1);
+                }//end else1
+        }//end if1
+        else
+        {//start else2
             //do nothing
-        }
-    }
+        }//end else2
+    }//end onCreate
 
     button = (Button) findViewById(R.id.button);
 
    Text1(import from user)
       String Text2 =  "SOS please call me";
 
-    button.setOnClickListener(new View.OnClickListener() {
+    button.setOnClickListener(new View.OnClickListener()
+    {//start setOn
         @override
-        public void onClick(View v) {
+        public void onClick(View v)
+        {//start onClick
             String number = Text1.getText().toString();
             String sms = Text2;
 
-            try {
+            try
+            {//start try
                 smsManager=smsManager.getDefault();
                 smsManager.sendTextMessage (number, null, sms, null, null);
                 Toast.makeText(MainActivity.this, "Sent", Toast.LENGTH_SHORT).show();
-            }catch (exception e) {
+            }//end try
+            catch (exception e)
+            {//start catch
                 Toast.makeText(MainActivity.this, "not sent", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
+            }//end catch
+        }//end onClick
+    }//end SetOn
 
     @overridde
-    public void onRequestPermissionsResult(int RequestCode, String[] permissions, int[] grantResults){
-        switch (requestCode) {
-            if (grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                if(ContextCompat.checkSelfPermission(MainActivity.this,
-                        Manifest.permission.SEND_SMS)== PackageManager.PERMISSION_GRANTED){
+    public void onRequestPermissionsResult(int RequestCode, String[] permissions, int[] grantResults)
+    {//start onRequest
+        switch (requestCode)
+        {//start switch
+            if (grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            {//start if1
+                if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS)== PackageManager.PERMISSION_GRANTED)
+                {//start if2
                     Toadt.makeText(this, "Permission granted"), Toast.LENGTH_SHORT).show();
-                }
-            }else{
-                Toast.makeText(this, "no permission granted"), Toast.LENGTH_SHORT).show();
-            }
+                }//end if2
+            }//end if1
+            else
+            {//start else
+                Toast.makeText(this, "permission not granted"), Toast.LENGTH_SHORT).show();
+            }//end else
             return;
         }
     }
 
 
-}
+}//end class
