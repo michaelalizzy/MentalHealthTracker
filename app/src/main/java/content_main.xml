@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.myapplication.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello!"
+        android:id="@+id/textView" />
+
+
+    <ImageButton
+        android:src="@drawable/red"
+        android:scaleType="fitCenter"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/red"
+        android:onClick="addColor"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView" />
+
+    <ImageButton
+        android:src="@drawable/yellow"
+        android:scaleType="fitCenter"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/yellow"
+        android:onClick="addColor"
+        android:layout_above="@+id/purple"
+        android:layout_alignLeft="@+id/purple"
+        android:layout_alignStart="@+id/purple" />
+
+    <ImageButton
+        android:src="@drawable/blue"
+        android:scaleType="fitCenter"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/blue"
+        android:onClick="addColor"
+        android:layout_alignTop="@+id/yellow"
+        android:layout_alignLeft="@+id/red"
+        android:layout_alignStart="@+id/red" />
+
+    <ImageButton
+        android:src="@drawable/purple"
+        android:scaleType="fitCenter"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/purple"
+        android:onClick="addColor"
+        android:layout_marginRight="49dp"
+        android:layout_marginEnd="49dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text=":D "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8"
+        android:layout_above="@+id/purple"
+        android:layout_toRightOf="@+id/yellow"
+        android:layout_toEndOf="@+id/yellow"
+        android:layout_marginBottom="38dp" />
+
+    <TextView
+        android:text=":\"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView9"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/yellow"
+        android:layout_toEndOf="@+id/yellow"
+        android:layout_marginBottom="40dp" />
+
+    <TextView
+        android:text=":("
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView10"
+        android:layout_alignBaseline="@+id/textView8"
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_toRightOf="@+id/blue"
+        android:layout_toEndOf="@+id/blue" />
+
+    <TextView
+        android:text=">:("
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView11"
+        android:layout_alignBaseline="@+id/textView9"
+        android:layout_alignBottom="@+id/textView9"
+        android:layout_toRightOf="@+id/red"
+        android:layout_toEndOf="@+id/red" />
+
+
+</RelativeLayout>
